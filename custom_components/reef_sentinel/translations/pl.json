@@ -3,19 +3,19 @@
     "step": {
       "user": {
         "title": "Reef Sentinel",
-        "description": "Wprowadź klucz API Reef Sentinel.",
+        "description": "Wprowadz klucz API Reef Sentinel.",
         "data": {
           "api_key": "Klucz API"
         }
       }
     },
     "error": {
-      "invalid_auth": "Nieprawidłowy klucz API",
-      "cannot_connect": "Brak połączenia z API Reef Sentinel",
-      "unknown": "Nieoczekiwany błąd"
+      "invalid_auth": "Nieprawidlowy klucz API",
+      "cannot_connect": "Brak polaczenia z API Reef Sentinel",
+      "unknown": "Nieoczekiwany blad"
     },
     "abort": {
-      "already_configured": "To konto Reef Sentinel jest już skonfigurowane"
+      "already_configured": "To konto Reef Sentinel jest juz skonfigurowane"
     }
   }
 }

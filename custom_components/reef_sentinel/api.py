@@ -33,8 +33,10 @@ class ReefSentinelApiClient:
                 headers={"X-API-Key": self._api_key},
                 timeout=aiohttp.ClientTimeout(total=15),
             ) as response:
-                if response.status != 200:
+                if response.status in (401, 403):
                     raise ReefSentinelApiClientAuthError("Invalid API key")
+                if response.status >= 400:
+                    raise ReefSentinelApiClientError("API request failed")
 
                 return await response.json()
         except asyncio.TimeoutError as err:
