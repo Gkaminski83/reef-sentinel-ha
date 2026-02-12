@@ -6,7 +6,7 @@ Reef Sentinel is a cloud service for monitoring reef aquarium health and water c
 ## Installation via HACS
 1. Open HACS in Home Assistant.
 2. Go to **Integrations**.
-3. Add this repository as a custom repository (category: **Integration**).
+3. In **Custom repositories**, paste this GitHub repository URL in HTTPS format (for example `https://github.com/<OWNER>/<REPO>`), then set category to **Integration**.
 4. Search for **Reef Sentinel** and install it.
 5. Restart Home Assistant.
 
