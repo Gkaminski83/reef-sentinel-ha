@@ -28,7 +28,7 @@ class ReefSentinelConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             except ReefSentinelApiClientAuthError:
                 errors["base"] = "invalid_auth"
             except ReefSentinelApiClientError:
-                errors["base"] = "invalid_auth"
+                errors["base"] = "cannot_connect"
             except Exception:  # pragma: no cover
                 errors["base"] = "unknown"
             else:
