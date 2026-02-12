@@ -32,4 +32,4 @@ class ReefSentinelDataUpdateCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         try:
             return await self.api.get_status()
         except ReefSentinelApiClientError as err:
-            raise UpdateFailed(str(err)) from err
+            raise UpdateFailed("API request failed") from err

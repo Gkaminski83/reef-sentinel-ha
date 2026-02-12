@@ -26,4 +26,4 @@ The integration polls the cloud API every 5 minutes (300 seconds).
 4. Paste it during integration setup.
 
 API endpoint used by this integration:
-`GET https://app.reef-sentinel.com/api/ha/tank-status?apiKey=YOUR_API_KEY`
+`GET https://app.reef-sentinel.com/api/ha/tank-status` with header `X-API-Key: YOUR_API_KEY`

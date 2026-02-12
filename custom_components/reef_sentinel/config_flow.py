@@ -28,11 +28,11 @@ class ReefSentinelConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             except ReefSentinelApiClientAuthError:
                 errors["base"] = "invalid_auth"
             except ReefSentinelApiClientError:
-                errors["base"] = "cannot_connect"
+                errors["base"] = "invalid_auth"
             except Exception:  # pragma: no cover
                 errors["base"] = "unknown"
             else:
-                await self.async_set_unique_id(f"reef_sentinel_{api_key[:8]}")
+                await self.async_set_unique_id("reef_sentinel_account")
                 self._abort_if_unique_id_configured()
                 return self.async_create_entry(
                     title="Reef Sentinel",

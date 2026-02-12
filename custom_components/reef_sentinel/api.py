@@ -30,20 +30,14 @@ class ReefSentinelApiClient:
         try:
             async with self._session.get(
                 API_BASE,
-                params={"apiKey": self._api_key},
+                headers={"X-API-Key": self._api_key},
                 timeout=aiohttp.ClientTimeout(total=15),
             ) as response:
-                if response.status in (401, 403):
+                if response.status != 200:
                     raise ReefSentinelApiClientAuthError("Invalid API key")
-
-                if response.status >= 400:
-                    text = await response.text()
-                    raise ReefSentinelApiClientError(
-                        f"API request failed with status {response.status}: {text}"
-                    )
 
                 return await response.json()
         except asyncio.TimeoutError as err:
-            raise ReefSentinelApiClientError("Request timed out") from err
+            raise ReefSentinelApiClientError("API request failed") from err
         except aiohttp.ClientError as err:
-            raise ReefSentinelApiClientError(f"Network error: {err}") from err
+            raise ReefSentinelApiClientError("API request failed") from err
