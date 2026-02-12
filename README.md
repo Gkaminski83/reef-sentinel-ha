@@ -1,4 +1,4 @@
-﻿# Reef Sentinel Home Assistant Integration
+# Reef Sentinel Home Assistant Integration
 
 ## What is Reef Sentinel
 Reef Sentinel is a cloud service for monitoring reef aquarium health and water chemistry. This custom integration connects Home Assistant to the Reef Sentinel API and exposes tank health, parameters, trends, and last update time as sensors.

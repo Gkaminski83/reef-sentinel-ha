@@ -1,4 +1,4 @@
-﻿"""The Reef Sentinel integration."""
+"""The Reef Sentinel integration."""
 
 from __future__ import annotations
 

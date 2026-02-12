@@ -1,4 +1,4 @@
-﻿"""Constants for the Reef Sentinel integration."""
+"""Constants for the Reef Sentinel integration."""
 
 DOMAIN = "reef_sentinel"
 PLATFORMS = ["sensor"]

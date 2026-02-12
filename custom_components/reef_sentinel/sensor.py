@@ -1,4 +1,4 @@
-﻿"""Sensor platform for Reef Sentinel."""
+"""Sensor platform for Reef Sentinel."""
 
 from __future__ import annotations
 

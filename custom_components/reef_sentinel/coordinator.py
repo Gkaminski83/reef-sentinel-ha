@@ -1,4 +1,4 @@
-﻿"""Data coordinator for Reef Sentinel."""
+"""Data coordinator for Reef Sentinel."""
 
 from __future__ import annotations
 

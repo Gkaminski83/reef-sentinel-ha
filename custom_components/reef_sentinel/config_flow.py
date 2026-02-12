@@ -1,4 +1,4 @@
-﻿"""Config flow for Reef Sentinel integration."""
+"""Config flow for Reef Sentinel integration."""
 
 from __future__ import annotations
 

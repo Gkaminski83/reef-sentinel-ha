@@ -1,4 +1,4 @@
-﻿"""Reef Sentinel API client."""
+"""Reef Sentinel API client."""
 
 from __future__ import annotations
 
