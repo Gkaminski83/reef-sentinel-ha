@@ -1,0 +1,11 @@
+﻿{
+  "domain": "reef_sentinel",
+  "name": "Reef Sentinel",
+  "version": "1.0.0",
+  "documentation": "https://github.com/example/reef-sentinel-ha#readme",
+  "issue_tracker": "https://github.com/example/reef-sentinel-ha/issues",
+  "codeowners": [
+    "@your-github-username"
+  ],
+  "config_flow": true
+}

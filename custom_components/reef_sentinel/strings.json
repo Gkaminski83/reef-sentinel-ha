@@ -1,0 +1,21 @@
+﻿{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Reef Sentinel",
+        "description": "Enter your Reef Sentinel API key.",
+        "data": {
+          "api_key": "API Key"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Invalid API key",
+      "cannot_connect": "Failed to connect",
+      "unknown": "Unexpected error"
+    },
+    "abort": {
+      "already_configured": "This Reef Sentinel account is already configured"
+    }
+  }
+}
