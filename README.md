@@ -20,10 +20,10 @@ Reef Sentinel is a cloud service for monitoring reef aquarium health and water c
 The integration polls the cloud API every 5 minutes (300 seconds).
 
 ## Where to get API key
-1. Sign in to Reef Sentinel at `https://app.reef-sentinel.com`.
+1. Sign in to Reef Sentinel at `https://app.reef-sentinel.pl`.
 2. Open your account or integration settings.
 3. Generate/copy your Home Assistant API key.
 4. Paste it during integration setup.
 
 API endpoint used by this integration:
-`GET https://app.reef-sentinel.com/api/ha/tank-status` with header `X-API-Key: YOUR_API_KEY`
+`GET https://app.reef-sentinel.pl/api/ha/tank-status` with header `X-API-Key: YOUR_API_KEY`
