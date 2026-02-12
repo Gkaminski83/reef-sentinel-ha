@@ -18,6 +18,22 @@ class ReefSentinelApiClientAuthError(ReefSentinelApiClientError):
     """API client authentication error."""
 
 
+class ReefSentinelApiClientConnectionError(ReefSentinelApiClientError):
+    """API client connection error."""
+
+
+class ReefSentinelApiClientTimeoutError(ReefSentinelApiClientError):
+    """API client timeout error."""
+
+
+class ReefSentinelApiClientServerError(ReefSentinelApiClientError):
+    """API client server-side error."""
+
+
+class ReefSentinelApiClientInvalidResponseError(ReefSentinelApiClientError):
+    """API client invalid response error."""
+
+
 class ReefSentinelApiClient:
     """Simple client for the Reef Sentinel API."""
 
@@ -35,11 +51,25 @@ class ReefSentinelApiClient:
             ) as response:
                 if response.status in (401, 403):
                     raise ReefSentinelApiClientAuthError("Invalid API key")
+                if response.status >= 500:
+                    raise ReefSentinelApiClientServerError("API server error")
                 if response.status >= 400:
-                    raise ReefSentinelApiClientError("API request failed")
+                    raise ReefSentinelApiClientConnectionError("API request failed")
 
-                return await response.json()
+                try:
+                    payload = await response.json()
+                except (aiohttp.ContentTypeError, ValueError) as err:
+                    raise ReefSentinelApiClientInvalidResponseError(
+                        "Invalid API response"
+                    ) from err
+
+                if not isinstance(payload, dict):
+                    raise ReefSentinelApiClientInvalidResponseError(
+                        "Invalid API response"
+                    )
+
+                return payload
         except asyncio.TimeoutError as err:
-            raise ReefSentinelApiClientError("API request failed") from err
+            raise ReefSentinelApiClientTimeoutError("API request timed out") from err
         except aiohttp.ClientError as err:
-            raise ReefSentinelApiClientError("API request failed") from err
+            raise ReefSentinelApiClientConnectionError("API request failed") from err

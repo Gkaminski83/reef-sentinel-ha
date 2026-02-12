@@ -10,8 +10,11 @@
       }
     },
     "error": {
-      "invalid_auth": "Nieprawidlowy klucz API",
-      "cannot_connect": "Brak polaczenia z API Reef Sentinel",
+      "invalid_auth": "Klucz API odrzucony przez Reef Sentinel (401/403). Sprawdz klucz Home Assistant.",
+      "cannot_connect": "Blad sieciowy miedzy Home Assistant a API Reef Sentinel.",
+      "timeout": "Przekroczono czas oczekiwania na odpowiedz API Reef Sentinel.",
+      "server_error": "Blad serwera Reef Sentinel API (5xx). Sprobuj ponownie pozniej.",
+      "invalid_response": "API Reef Sentinel zwrocilo nieoczekiwana odpowiedz.",
       "unknown": "Nieoczekiwany blad"
     },
     "abort": {

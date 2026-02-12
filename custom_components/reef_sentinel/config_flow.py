@@ -8,7 +8,14 @@ import voluptuous as vol
 from homeassistant import config_entries
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 
-from .api import ReefSentinelApiClient, ReefSentinelApiClientAuthError, ReefSentinelApiClientError
+from .api import (
+    ReefSentinelApiClient,
+    ReefSentinelApiClientAuthError,
+    ReefSentinelApiClientConnectionError,
+    ReefSentinelApiClientInvalidResponseError,
+    ReefSentinelApiClientServerError,
+    ReefSentinelApiClientTimeoutError,
+)
 from .const import CONF_API_KEY, DOMAIN
 
 
@@ -27,7 +34,13 @@ class ReefSentinelConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 await self._validate_api_key(api_key)
             except ReefSentinelApiClientAuthError:
                 errors["base"] = "invalid_auth"
-            except ReefSentinelApiClientError:
+            except ReefSentinelApiClientTimeoutError:
+                errors["base"] = "timeout"
+            except ReefSentinelApiClientServerError:
+                errors["base"] = "server_error"
+            except ReefSentinelApiClientInvalidResponseError:
+                errors["base"] = "invalid_response"
+            except ReefSentinelApiClientConnectionError:
                 errors["base"] = "cannot_connect"
             except Exception:  # pragma: no cover
                 errors["base"] = "unknown"

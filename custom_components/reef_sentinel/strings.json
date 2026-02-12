@@ -10,8 +10,11 @@
       }
     },
     "error": {
-      "invalid_auth": "Invalid API key",
-      "cannot_connect": "Failed to connect",
+      "invalid_auth": "API key rejected by Reef Sentinel (401/403). Verify the Home Assistant API key.",
+      "cannot_connect": "Network error from Home Assistant to Reef Sentinel API.",
+      "timeout": "Connection timed out while contacting Reef Sentinel API.",
+      "server_error": "Reef Sentinel API server error (5xx). Try again later.",
+      "invalid_response": "Reef Sentinel API returned an unexpected response.",
       "unknown": "Unexpected error"
     },
     "abort": {
