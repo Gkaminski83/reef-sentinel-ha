@@ -23,7 +23,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 
     session = async_get_clientsession(hass)
     api = ReefSentinelApiClient(entry.data[CONF_API_KEY], session)
-    coordinator = ReefSentinelDataUpdateCoordinator(hass, api)
+    coordinator = ReefSentinelDataUpdateCoordinator(hass, api, entry, session)
 
     await coordinator.async_config_entry_first_refresh()
 
